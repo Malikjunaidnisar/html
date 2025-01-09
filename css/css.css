@@ -1,0 +1,30 @@
+p.box{width:100px;
+     height:100px;
+     font-weight:heavy;
+     background-color:red;
+     transition-property:width;
+     transition-duration:1s;
+     transition-timing-function:ease-in-out;
+     transition-delay:0.5s;
+}
+p.box:hover{
+width:200px;
+}
+ h1,h2{
+     color:red;
+     background-color: blue;
+     height: 100px;
+     width: 100px;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+ p{
+     color:orange;
+     font-size: 20px;
+ }
+ .line{
+     margin:20px;
+     border: dashed;
+     padding: 50px;
+     height: 20px;
+     overflow: hidden;
+ }
