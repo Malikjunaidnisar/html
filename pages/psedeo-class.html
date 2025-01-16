@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes myname{
+            0%{transform:rotate(0degrees);}
+            25%{transform:rotate(90degrees);}
+            50%{transform:rotate(180degrees);}
+            75%{transform:rotate(270degrees);}
+            100%{transform:rotate(360degrees);}
+        }
+        .box{
+            color: red;
+            width: 100px;
+            height: 100px;
+            animation-name:myname;
+            animation-duration: 5s;
+            animation-timing-function:linear;
+            animation-delay: 2s;
+            animation-iteration-count: 50;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>this is a 3d border</p>
+    </div>
+</body>
+</html>
