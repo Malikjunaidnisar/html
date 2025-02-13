@@ -71,8 +71,81 @@ product={
     totalUnits:7,
     colors:["black","white","gray"]
     }
-console.log(product)
+//console.log(product)
 let ran=Math.floor(Math.random()*500+500)
-console.log(ran)
+//console.log(ran)
+let j=2
+let r=3
+let q=j
+//console.log(q)
+j=r
+//console.log(j)
+ r=q
+//console.log(r)  
+//console.log(j,r)
+//console.log(typeof j) //use typeof to check type of variable
+//let personA=number("28")
+//console.log(personA)
+let personB=36
+personC=personB.toString()
+//console.log(typeof personC) //change data type to string
+let firstName="person"
+let lastName="nisar"
+//let fullName1=firstName+lastName
+//console.log(fullName1)
+let fullName2=`${firstName} ${lastName}`
+//console.log(fullName2)
+const restaurant={
+    name:"Ichiran Ramen",
+    address:`${Math.floor(Math.random() *100)+1} Johnson Ave`,
+    city:"Brooklyn",
+    state:"NY",
+    zip:"11215",
+}
+//console.log(restaurant)
+let fullAdress=`${restaurant.address},${restaurant.city},${restaurant.state},${restaurant.zip}`
+//console.log(fullAdress)
+//console.log(restaurant.address)
 
-
+ap=Number("28")  // to convert string value to number
+//console.log(typeof ap) //check datatype of your variables
+let student={
+    name:'malik',
+    age:29,
+    subjects:['english','math','urdu'],
+    isEnrolled:true
+}
+//console.log(student.name,student.age,student.subjects,student.isEnrolled)
+student.grade="A" //use obj.key=yourvalue to add new keyvalue pair
+student.isEnrolled=false //use obj.key=yourvalue to modify new keyvalue pair
+student['priority']=true
+delete student.priority //delete a value use delete objname.key
+//console.log(student)
+let myAge=28
+//if(myAge>28){
+  //  console.log("your age is greater than 28")
+//}else{
+//    console.log("your age is not less than 28")
+//}
+login=false
+pro=false
+//if(login==false){
+  //  console.log("log in first to see the data")
+//}else{
+  //  if(pro==true){
+   // console.log("thankwelcome to the system")
+   // }else{
+   // console.log("log in first to see the data")
+//}
+///}
+user=true
+pro=false
+if(!user){
+    console.log("pls login first")
+}
+if(user && pro){
+    console.log("thankyou to the system")
+}
+if(user && !pro){
+    console.log("pls subscribe")
+}
