@@ -1,0 +1,13 @@
+let a = [1, 2, 3, 4]
+for(let value of a){
+ //   console.log(value)
+}
+let b ={
+    firstName: "malik",
+    lastName: "nisar",
+    age: 28
+}
+for (let key in b){
+    console.log(b[key])
+    console.log(key)
+}

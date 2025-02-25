@@ -34,17 +34,17 @@
 //         console.log(a[b]);
 //         b=b+1;
 // //     }
-// library = [{title:"subjects",author:"m.j",yearPublished: 2004}]
-// library[1]={newbook:"system design"}
-// console.log(library)
-// for (let i=0; i<library.length; i++) {
-//     if (library[i].newbook=="system design"){ 
-//     console.log(library[i])
-//     }
-// }
-// library[0].yearPublished = new Date
-// console.log(library)
-let a= "Firstline\nSecondline\tTabbed"
-console.log(a)
-let b = "c:\\User\\Name\\Documents"
-console.log(b)
+library = [{title:"subjects",author:"m.j",yearPublished: 2004}]
+library[1]={newbook:"system design"}
+console.log(library)
+for (let i=0; i<library.length; i++) {
+    if (library[i].newbook=="system design"){ 
+    console.log(library[i])
+    }
+}
+library[0].yearPublished = new Date
+console.log(library)
+// let a= "Firstline\nSecondline\tTabbed"
+// console.log(a)
+// let b = "c:\\User\\Name\\Documents"
+// console.log(b)

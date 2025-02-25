@@ -24,22 +24,39 @@
 // if (a<50){
 // 	console.log(`${"your mark is"} ${a} ${"you have failed in exam repeat again this year"}`)
 // }
-for ( num = 1; num <= 100; num = num + 1){
-	if (num % 10 == 0 && num == 100){
-		console.log("you made it!")
-	}
-	else if (num % 10 == 0 && num == 50){
-		console.log("half way there!")
-	}
-	else if ( num % 10 == 0 ){
-		console.log("checkpoint" + num)
-	}
-	else {continue;}
-}
-console.log("All done!")
-// let num = 10;
-// let count = 1;
-// while(count <= 10){
-// 	console.log(`${num}${"x"}${count}${"="}${num*count}`);
-// 	count = count + 1;
+// for ( num = 1; num <= 100; num = num + 1){
+// 	if (num % 10 == 0 && num == 100){
+// 		console.log("you made it!")
+// 	}
+// 	else if (num % 10 == 0 && num == 50){
+// 		console.log("half way there!")
+// 	}
+// 	else if ( num % 10 == 0 ){
+// 		console.log("checkpoint" + num)
+// 	}
+// 	else {continue;}
 // }
+// console.log("All done!")
+// // let num = 10;
+// // let count = 1;
+// // while(count <= 10){
+// // 	console.log(`${num}${"x"}${count}${"="}${num*count}`);
+// // 	count = count + 1;
+// // }
+// let a = "example@example.com";
+// let b = "";
+// for (let i = 0; i < a.length; i++){
+// 	if (a[i] === 0 || a[i] === "@" ){
+// 		b= b+ a[i]
+// 	}else {
+// 		b =b + a.slice(a[i]-1,)
+// 	}
+// }
+// console.log(b);
+//console.log(a[1])
+function truncateString (string,lenght) {
+	let a = string.slice(0,lenght)
+	return a
+}
+let b = truncateString("hello",3)
+console.log(b)
