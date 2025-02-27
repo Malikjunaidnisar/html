@@ -34,17 +34,49 @@
 //         console.log(a[b]);
 //         b=b+1;
 // //     }
-library = [{title:"subjects",author:"m.j",yearPublished: 2004}]
-library[1]={newbook:"system design"}
-console.log(library)
-for (let i=0; i<library.length; i++) {
-    if (library[i].newbook=="system design"){ 
-    console.log(library[i])
-    }
-}
-library[0].yearPublished = new Date
-console.log(library)
+// library = [{title:"subjects",author:"m.j",yearPublished: 2004}]
+// library[1]={newbook:"system design"}
+// console.log(library)
+// for (let i=0; i<library.length; i++) {
+//     if (library[i].newbook=="system design"){ 
+//     console.log(library[i])
+//     }
+// }
+// library[0].yearPublished = new Date
+// console.log(library)
 // let a= "Firstline\nSecondline\tTabbed"
 // console.log(a)
 // let b = "c:\\User\\Name\\Documents"
 // console.log(b)
+// let a = "sayaandtrain1@gmail.com";
+// let b = a.slice(a.indexOf("@"));
+// let c = a.slice(0,a.indexOf("@")) ;
+// let d = a[0]
+//document.write(a.length)
+// for (i = 1; i < c.length; i++) {
+//   if (i != c.length - 1) {
+//   	d = d + "*"
+//   }
+//   else{
+//   	d = d + c[i];
+//   }
+// }
+// console.log(d)
+
+function ration(name) {
+    a ={atta : 200,
+        rice :100
+    }
+    b =""
+    for (let key in a){
+        if (key == name){
+            b = key
+            return b
+        }
+        // console.log(key)
+    }
+    console.log(b)
+
+}
+console.log(ration("atta"))
+// console.log(key)
