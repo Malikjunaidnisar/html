@@ -8,6 +8,6 @@ a = {name:"malik",
     nationality:"Pakistani",
     isNational:true,
 }
-Object.freeze(a)
+a
 a.name="junaid"
 console.log(a)
