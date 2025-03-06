@@ -39,3 +39,26 @@
 // console.log(date.getDay())
 // console.log(date.getMonth())
 // console.log(date.getFullYear())
+                 
+// let parent =document.getElementById('overview')
+// let child=document.getElementById('title');
+// parent.removeChild(child);
+
+// let child2 = document.getElementById('content');
+// child2.remove()
+                        //    Event litenter
+
+
+// function addText(){
+//     child.textContent = "i have been clicked"
+    
+// }
+// child.addEventListener("click",addText)
+
+let input =document.getElementById("get")
+let child =document.getElementById("title")
+function getText(){
+    child.textContent = input.value
+
+}
+input.addEventListener("input",getText)
