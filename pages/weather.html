@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<title>Weather Forecast
+</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.weathercentugrade {
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #007bff;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="body">
+<h2 id="heading">City,Country
+</h2>
+<label>Enter City name</label>
+<input id="text" type="text">
+<button type="submit" id="click">Submit
+</button>
+<div class="weathercentugrade">
+<h1 id="temperatureF">Temperature in F</h1>
+<h1 id="temperatureC">Temperature in C</h1>
+</div>
+</div>
+</div>
+</body>
+<script>
+let button =document.getElementById("click")
+let cityinput = document.getElementById("text")
+let weather =async ()=>{
+	 let query = cityinput.value
+	 let url = `http://api.weatherapi.com/v1/current.json?key=c74b5e49c6504055837201645251403&q=${query}&aqi=no`
+     let response = await fetch(url)
+     let data= await response.json()
+     let weather1 = {
+         Country:data.location.country,
+         City:data.location.name,
+         Tempinf:data.current.temp_f,
+         Tempinc:data.current.temp_c
+          }
+     function getvalue (data){
+          let h2 =document.getElementById("heading")
+          h2.innerHTML=weather1.City+", "+weather1.Country
+          let h1 =document.getElementById("temperatureF")
+          h1.innerHTML=weather1.Tempinf+"<sup>o</sup>"+"F"
+          let h3 =document.getElementById("temperatureC")
+          h3.innerHTML=weather1.Tempinc+"<sup>o</sup>"+"C"
+          cityinput.value=""
+      }
+	 getvalue(weather1)
+}
+button.addEventListener("click",weather)
+</script>
+</html>

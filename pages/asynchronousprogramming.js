@@ -21,19 +21,56 @@
 // orderPizza()
 // prepairingPizza()
 // served()
-const callback = (resolve,reject)=> {
-    setTimeout(() => {
-        const success = true
-        if(success){
-            resolve("success");
-        }
-        else{
-            reject("failure");
-        }
-    }, 2000);
+// const callback = (resolve,reject)=> {
+//     setTimeout(() => {
+//         const success = true
+//         if(success){
+//             resolve("success");
+//         }
+//         else{
+//             reject("failure");
+//         }
+//     }, 2000);
+// }
+// const promise = new Promise(callback)
+// console.log(promise)
+// promise
+// .then((m)=> console.log(m))
+// .catch((e)=> console.error(e))
+function orderPizza() {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve("ordered")
+        },4000)
+    })
 }
-const promise = new Promise(callback)
-console.log(promise)
-promise
-.then((m)=> console.log(m))
-.catch((e)=> console.error(e))
+function preparePizza() {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve("prepaired")
+        },3000)
+    })
+}
+function servePizza() {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve("served")
+        },1000)
+    })
+}
+async function processPizza() {
+    try {
+     const order = await orderPizza();
+     console.log(order);
+     const prepare = await preparePizza();
+     console.log(prepare);
+     const serve = await servePizza();
+     console.log(serve);
+    } catch (e) {
+     console.log(e);
+    } finally {
+     console.log("Finally Executed")
+    }
+ }
+  
+ processPizza();
