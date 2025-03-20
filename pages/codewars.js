@@ -17,14 +17,18 @@
 //   // console.log(b)
 // }
 // findAverage(arr)
-function abbrevName(name){
-let a=name[0]
-b=name.indexOf(" ")
-c=name[b+1]
-a=a+"."+c
-console.log(a)
+// function abbrevName(name){
+// let a=name[0]
+// b=name.indexOf(" ")
+// c=name[b+1]
+// a=a+"."+c
+// console.log(a)
 
-  // code away
+//   // code away
 
-}
-abbrevName("John Doe")
+// }
+// abbrevName("John Doe")
+// function multiply(a, b){
+//   return c = a * b
+// }
+// multiply(3,7)
