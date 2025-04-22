@@ -61,21 +61,16 @@ const result = shoppingart.reduce((accumulator, currentValue) => {
     return (accumulator += currentValue.name);
 }, "");
 // console.log(result)
-let x ="abc"
-let result3 = x.reduce((accumulator,value)=>{
-    for (i=0;i < x.length;i++){
-        console.log(1)
-    }
-   
-},0)
-console.log(result3)
-// const data = {
-//     name: 'malik',
-//     age: 30,
-//     email: 'saya'
-// };
-// const userJSON = JSON.stringify(data);
-// console.log(userJSON);
-// localStorage.setItem('user', userJSON);
+// let x ="abc"
+// let result3 = x.reduce((accumulator,value)=>{
+// },[])
+const data = {
+    name: 'malik',
+    age: 30,
+    email: 'saya'
+};
+const userJSON = JSON.stringify(data);
+console.log(userJSON);
+localStorage.setItem('user', userJSON);
 // const str =localStorage.getItem("user")
 // console.log(str)
