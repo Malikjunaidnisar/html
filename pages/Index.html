@@ -22,29 +22,27 @@
       background-color: blue;
       text-align: center;
     }
-    <script src="">
-    </script>
    </style>
   </head>
   <body>
-   <h3>HOME PAGE</h3>
-    <ol>
-     <a href="./about.html">About</a>
-     <a href="./conatct">Conatct</a>
-     </ol>
-    <div class="box1">box 1</div>
-    <div class="box">box 2</div>
-    <div class="box">box 3</div>
-    <div class="box">box 4</div> 
-    <div>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
-      </div>
+    <div style="height: auto; width: auto;border: 1px solid black;">a</div>
+   <img src="../Assets/img.icons8.png" alt="an image">
+   <img src="../Assets/istockphoto-2149530993-1024x1024.jpg" alt="img">
+   <img src="../Assets/smile face.jpg" alt="smile">
+   <script>
+    let a =document.querySelectorAll('img')
+    a.forEach((i)=>{
+      i.addEventListener('click',(e)=>{
+        let parent=document.querySelector('div')
+        parent.innerHTML=''
+        let child = document.createElement('img')
+        child.src=i.src
+        parent.appendChild(child)
+        // alert(i.src)
+      })
+    })
+    // let parent=document.querySelector('div')
+    // parent.appendChild(<img src="../Assets/img.icons8.png" alt="an image">)
+   </script>
   </body>
  </html>

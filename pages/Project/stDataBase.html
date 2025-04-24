@@ -118,8 +118,9 @@
                             <td>${data[i].major}</td>
                             <td>
                             <form>
-                            <button type="submit" class="update">update</button</form
-                            </td
+                            <button type="submit" class="update">update</button</form></td>
+                            <td><form><button type="" class="delete">Delete</button</form>
+                            </td>
                             </tr>`
                 parent.innerHTML+=child
         
@@ -159,14 +160,28 @@
                         }
                         let url=`http://localhost:3000/student/${id}`
                         let response=await fetch(url,patchMethod)
-                        alert(response.ok)
                         let data1=await response.json()
                        
                     }
                     patch()
                 })
             })
-            console.log(b)
+        }).then(()=>{
+            let delButton =document.querySelectorAll(".delete")
+            delButton.forEach(button=>{
+            button.addEventListener('click',function(){
+                const row =this.closest('tr')
+                const id = row.querySelector('td').textContent
+                let delProcess ={
+                method:"DELETE"
+                }
+                async function delData(){
+                let url = `http://localhost:3000/student/${id}`
+                let response=await fetch(url,delProcess)
+                }
+                delData()
+            })
+        })
         })
         
         // let upButton = document.getElementById("Update")
@@ -241,20 +256,36 @@
             send()
         }
         )
-        // let delButton =document.getElementById("Delete")
-        // delButton.addEventListener("click",()=>{
-        //     let delProcess ={
-        //         method:"DELETE"
-        //     }
-        //     async function delData(){
-        //         let delPrompt=prompt("Your Id")
-        //         let url = `http://localhost:3000/student/${delPrompt}`
-        //         let response=await fetch(url,delProcess)
-        //     }
-        //     delData()
-        //     event.preventDefault()
+        // let delButton =document.querySelectorAll(".delete")
+        // console.log(delButton.length)
+        // delButton.forEach(button=>{
+        //     button.addEventListener('click',function(){
+        //         // const row =this.closest('tr')
+        //         // const id = row.querySelector('td').textContent
+        //         alert('id')
+        //     })
         // })
-        
+        // delButton.forEach(button=>{
+        //     button.addEventListener('click',function(){
+        //         const row =this.closest('tr')
+        //         const id= row.querySelector('td').textContent
+        //         let delProcess ={
+        //         method:"DELETE"
+        //         }
+        //         async function delData(){
+        //         let url = `http://localhost:3000/student/${id}`
+        //         let response=await fetch(url,delProcess)
+        //         }
+        //         delData()
+
+        //     }
+               
+                
+                
+                
+                
+        // //     ))
+        // })
         </script>
 </body>
 
