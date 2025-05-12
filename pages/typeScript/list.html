@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list to do</title>
+    <style>
+        body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    }
+    h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+    }
+    #container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    }
+    input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    }
+    button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+    background-color: #0056b3;
+    }   
+    td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    }
+    th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: #333;
+    }
+    tr:last-child td {
+    border-bottom: none;
+    }
+    tr:nth-child(even) {
+    background-color: #f9f9f9;
+    }
+    button.delete {
+    background-color: #dc3545;
+    }
+    button:hover {
+    opacity: 0.8;
+    }
+    td form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+    </style>
+</head>
+<body>
+    <h1>My Todo List
+    </h1>
+    <div id="container">
+    <form>
+    <label>Todo Work List
+    <input id="work-list" name="worklist" placeholder="Enter your Work"/>
+    </label>
+    <button type="submit" id="form">Add Item
+    </button>
+    </form>
+    </div>
+    <div>
+    <table id="table">
+    </table>
+    </div>
+    <script>
+    let form = document.getElementById("form")
+    
+    form.addEventListener("click",(event)=>{
+        let workInput=document.getElementById("work-list")
+        event.preventDefault()
+        let workList= workInput.value
+        alert(workList)
+        let listToDo=JSON.parse(localStorage.getItem("work"))??[]
+        listToDo.push({
+            workToDo:workList,
+        })
+        localStorage.setItem("work",JSON.stringify(listToDo))
+        workInput.value =""
+        alert(listToDo)
+    })
+    function getData(){
+	
+	let getdata = JSON.parse(localStorage.getItem("work"))
+	let parent = document.getElementById("table")
+	for (i=0;i <getdata.length;i++){
+		let child =`<tr><td>${getdata[i].workToDo}</td>
+					<td>
+					<form>
+					<button type="submit" class="edit">Edit
+					</button>
+					</form>
+					</td>
+					<td>
+					<form>
+					<button type="submit" class="delete">delete
+					</button>
+					</form>
+					</td>
+					</tr>`
+		parent.innerHTML = parent.innerHTML+child
+	}
+}
+getData()
+let getdata = JSON.parse(localStorage.getItem("work")) ?? []
+function edit(){
+	let update= document.querySelectorAll(".edit")
+	update.forEach((button)=>{
+		button.addEventListener("click",function(){
+			localStorage.removeItem("keys")
+			let tr = this.closest("tr")
+			let td = tr.querySelector("td")
+			let tdData = td.textContent
+			getdata.forEach((element)=>{
+				if (tdData == element.workToDo){
+					let input= document.getElementById("work-list")
+					let inputValue= input.value
+					element.workToDo= inputValue
+					ndata = JSON.parse(localStorage.getItem("keys"))??[]
+					ndata.push({
+						workToDo:element.workToDo
+					})
+					localStorage.setItem("keys",JSON.stringify(ndata))
+				}
+				else{
+					ndata =JSON.parse(localStorage.getItem("keys"))??[]
+					ndata.push({
+						workToDo:element.workToDo
+					})
+					localStorage.setItem("keys",JSON.stringify(ndata))
+				} 
+				 
+			})
+			localStorage.removeItem("work")
+			
+			let dd = JSON.parse(localStorage.getItem("work"))??[]
+			let fd = JSON.parse(localStorage.getItem("keys"))??[]
+			fd.forEach((element)=>{
+				dd.push({
+					workToDo:element.workToDo
+				})
+			localStorage.setItem("work",JSON.stringify(fd))
+			})
+		})
+	})
+}
+edit()
+function delButton(){
+	let del=document.querySelectorAll(".delete")
+	del.forEach((button)=>{
+		button.addEventListener("click",d)
+	})
+}
+delButton()
+function d(){
+	let tr = this.closest("tr")
+	let td = tr.querySelector("td")
+	let tdText = td.textContent
+	localStorage.removeItem("work")
+	getdata.forEach((element)=>{
+		if (tdText !== element.workToDo){
+			<!-- localStorage.removeItem("work") -->
+			let fd = JSON.parse(localStorage.getItem("work"))??[]
+			fd.push(element)
+			localStorage.setItem("work",JSON.stringify(fd))
+			let dd =JSON.parse(localStorage.getItem("work"))??[]
+		}
+	})
+}
+</script>
+</body>
+</html>

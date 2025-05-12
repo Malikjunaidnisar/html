@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>toDolist</label>
+    <input type="text" id="input"/>
+    <form>
+        <button type="submit" id="add">Add Item</button>
+    </form>
+<table id="form">
+    <tr>
+        <td>this is</td>
+        <form>
+        <td><button class="update">Update button</button>
+        <button>Delete button</button></td>
+        </form>
+    </tr>
+</table>
+<!-- <script>
+    let addData=document.getElementById('add')
+    addData.addEventListener('click',(event)=>{
+    let inputText=document.getElementById('input').value
+    let parent = document.getElementById('form')
+    let child=`<tr>
+        <td>${inputText}</td>
+        <form>
+        <td><button class="update">Update button</button>
+        <button>Delete button</button></td>
+        </form>
+        </tr>`
+        
+        parent.innerHTML=parent.innerHTML+child
+        alert(parent)
+        event.preventDefault()
+    })
+    
+    // update.forEach((button)=>{
+    //     button.addEventListener('click',function(){
+    //         alert('tr')
+    //     })
+    // })
+</script> -->
+<h1>My Todo List
+</h1>
+<div id="container">
+<form id="userintro">
+<label>Todo Work List
+<input id="name" name="worklist" placeholder="Enter your Work"/>
+</label>
+<!-- <label>Your email -->
+<!-- <input id="email" name="email" required/> -->
+<!-- </label> -->
+<!-- <label>UserId -->
+<!-- <input id="Id" name="Id" type="number"/> -->
+<!-- </label> -->
+<button type="submit" id="form">submit
+</button>
+</form>
+</div>
+<div>
+<table id="ullist">
+</table>
+</div>
+<script>
+let form = document.getElementById("form")
+
+form.addEventListener("click",(event)=>{
+	let workInput=document.getElementById("name")
+	event.preventDefault()
+	let workList= workInput.value
+    alert(workList)
+	let listToDo=JSON.parse(localStorage.getItem("work"))??[]
+	listToDo.push({
+		workToDo:workList,
+	})
+	localStorage.setItem("work",JSON.stringify(listToDo))
+	workInput.value =""
+})
+// function getData(){
+	
+// 	let getdata = JSON.parse(localStorage.getItem("work"))
+// 	let parent = document.getElementById("ullist")
+// 	for (i=0;i <getdata.length;i++){
+// 		let child =`<tr><td>${getdata[i].workToDo}</td>
+// 					<td>
+// 					<form>
+// 					<button type="submit" class="edit">Edit
+// 					</button>
+// 					</form>
+// 					</td>
+// 					<td>
+// 					<form>
+// 					<button type="submit" class="delete">delete
+// 					</button>
+// 					</form>
+// 					</td>
+// 					</tr>`
+// 		parent.innerHTML = parent.innerHTML+child
+// 	}
+// }
+// getData()
+// let getdata = JSON.parse(localStorage.getItem("work")) ?? []
+// function edit(){
+// 	let update= document.querySelectorAll(".edit")
+// 	update.forEach((button)=>{
+// 		button.addEventListener("click",function(){
+// 			localStorage.removeItem("keys")
+// 			let tr = this.closest("tr")
+// 			let td = tr.querySelector("td")
+// 			let tdData = td.textContent
+// 			getdata.forEach((element)=>{
+// 				if (tdData == element.workToDo){
+// 					let input= document.getElementById("name")
+// 					let inputValue= input.value
+// 					element.workToDo= inputValue
+// 					ndata = JSON.parse(localStorage.getItem("keys"))??[]
+// 					ndata.push({
+// 						workToDo:element.workToDo
+// 					})
+// 					localStorage.setItem("keys",JSON.stringify(ndata))
+// 				}
+// 				else{
+// 					ndata =JSON.parse(localStorage.getItem("keys"))??[]
+// 					ndata.push({
+// 						workToDo:element.workToDo
+// 					})
+// 					localStorage.setItem("keys",JSON.stringify(ndata))
+// 				} 
+				 
+// 			})
+// 			localStorage.removeItem("work")
+			
+// 			let dd = JSON.parse(localStorage.getItem("work"))??[]
+// 			let fd = JSON.parse(localStorage.getItem("keys"))??[]
+// 			fd.forEach((element)=>{
+// 				dd.push({
+// 					workToDo:element.workToDo
+// 				})
+// 			localStorage.setItem("work",JSON.stringify(fd))
+// 			})
+// 		})
+// 	})
+// }
+// edit()
+// function delButton(){
+// 	let del=document.querySelectorAll(".delete")
+// 	del.forEach((button)=>{
+// 		button.addEventListener("click",d)
+// 	})
+// }
+// delButton()
+// function d(){
+// 	let tr = this.closest("tr")
+// 	let td = tr.querySelector("td")
+// 	let tf = td.textContent
+// 	localStorage.removeItem("work")
+// 	getdata.forEach((element)=>{
+// 		if (tf !== element.workToDo){
+// 			<!-- localStorage.removeItem("work") -->
+// 			let fd = JSON.parse(localStorage.getItem("work"))??[]
+// 			fd.push(element)
+// 			localStorage.setItem("work",JSON.stringify(fd))
+// 			let dd =JSON.parse(localStorage.getItem("work"))??[]
+// 		}
+// 	})
+// }
+// <!-- localStorage.removeItem("keys") -->
+</script>
+</body>
+</html>
