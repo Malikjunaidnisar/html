@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title><%=products[0].title%></title>
+</head>
+<body>
+    <h1>Shop our product</h1>
+    <ul>
+        <% products.forEach(function(p){%>
+            <% if(p) {%>
+                <div>
+            
+                    <img src=<%=p.path%> alt="name">
+                    <p><%=p.name%></p>
+                    <p><%=p.price%></p>
+                    
+                </div>
+            <%}%>
+
+        <%})%>
+        
+    </ul>
+</body>
+</html>
