@@ -1,0 +1,16 @@
+<ul>
+    <% products.forEach(function(p){%>
+        <a href="/products/<%=p.slug%>">
+            <div>
+        
+                <img src="<%=p.path%>" alt="name">
+                <p><%=p.name%></p>
+                <% if(p.dprice)
+                <p><%=p.price%></p>
+                
+                
+            </div>
+        </a>
+
+    <%})%>
+</ul>
