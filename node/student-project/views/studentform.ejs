@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Update Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3f51b5;
+            --primary-hover: #303f9f;
+            --secondary-color: #f8f9fa;
+            --text-color: #495057;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .form-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .profile-pic-container {
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #f0f0f0;
+        }
+        
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(63, 81, 181, 0.3);
+        }
+        
+        .form-label {
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+        
+        .form-control, .form-select {
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px solid #ced4da;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(63, 81, 181, 0.25);
+        }
+        
+        .btn-submit {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+        
+        .document-preview {
+            margin-top: 15px;
+        }
+        
+        .document-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+            
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .btn-submit {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .form-container {
+                padding: 15px;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="form-container">
+                    <h2 class="form-title">Student Profile</h2>
+                    
+                    <form id="registrationForm" method="post" action="/student/<%=inf.id%>/studentform?_method=PUT">
+                        <!-- Search Field -->
+                        <div class="mb-4">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search..." aria-label="Search">
+                                <button class="btn btn-primary" type="button" >
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Profile Picture Upload -->
+                        <div class="profile-pic-container">
+                            <img id="profilePic" src="<%=inf.img%>"  alt="User profile picture" class="profile-pic">
+                            <input type="file" id="imageUpload" accept="image/*" name="profileImage" style="display: none;">
+                            <div class="mt-2">
+                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="document.getElementById('imageUpload').click()">
+                                    <i class="fas fa-camera me-1"></i> Upload Photo
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Name Fields -->
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstname" value="<%=inf.firstname%>" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" name="lastname" id="lastName" value="<%=inf.lastname%>" required>
+                            </div>
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" value="<%=inf.email%>" required>
+                        </div>
+
+                        <!-- Phone Field -->
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" name="phoneno" value="<%=inf.phoneno%>" required>
+                        </div>
+
+                        <!-- Role Field -->
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Role</label>
+                            <select class="form-select" id="role" name="role" value="<%=inf.role%>"required>
+                                <option value="" selected disabled>Select your role</option>
+                                <option value="admin">Admin</option>
+                                <option value="student">Student </option>
+                                <option value="teacher">Teacher</option>
+                                
+                            </select>
+                        </div>
+
+                        <!-- Education Field -->
+                        <div class="mb-3">
+                            <label for="education" class="form-label">Education</label>
+                            <select class="form-select" id="education"  name="education" required>
+                                <option value="" selected disabled>Select your education level</option>
+                                <option value="highschool">High School</option>
+                                <option value="diploma">Diploma</option>
+                                <option value="bachelors">Bachelor's Degree</option>
+                                <option value="masters">Master's Degree</option>
+                                <option value="phd">PhD</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- City Field -->
+                        <div class="mb-3">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" name="city" id="city" value="<%=inf.city%>" required>
+                        </div>
+
+
+
+                        <!-- Submit Button -->
+                        
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-submit">
+                            	
+                                <i class="fas fa-user-plus me-2"></i>Update Student
+                            </button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

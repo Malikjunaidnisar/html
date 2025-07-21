@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Data Example</title>
+</head>
+<body>
+    <h1>Data from JSON</h1>
+    <div id="data-container"></div>
+
+    <script>
+        // Your JavaScript code will go here
+        let dataBase = async () => {
+            let url = "http://127.0.0.1:3000/data.json"; // URL to fetch data from
+            try {
+                let response = await fetch(url);
+                
+                // Check if the response is ok (status in the range 200-299)
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                let data = await response.json(); // Parse the JSON data
+                
+                // Display the data in the HTML
+                let dataContainer = document.getElementById('data-container');
+                data.forEach(item => {
+                    let div = document.createElement('div');
+                    div.textContent = `Name: ${item.name}, Major: ${item.major}`; // Adjust based on your data structure
+                    dataContainer.appendChild(div);
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                document.getElementById('data-container').textContent = 'Failed to load data.';
+            }
+        };
+
+        dataBase(); // Call the function to fetch and display data
+    </script>
+</body>
+</html>
