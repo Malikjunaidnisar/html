@@ -1,9 +1,9 @@
 {
   "name": "node",
   "version": "1.0.0",
-  "main": "miniExpress.js",
+  "main": "json.js",
   "scripts": {
-    "start": "node --watch miniExpress.js",
+    "start": "node json.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
