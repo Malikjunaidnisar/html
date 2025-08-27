@@ -1,0 +1,68 @@
+import React, { useEffect, useState } from 'react'
+import StudentCard from './StudentCard'
+import { API_URI } from '../config/api'
+import { Loader2 } from 'lucide-react'
+
+interface Student {
+  id: number
+  name: string
+  age: number
+  major: string
+  courses: { courseName: string; grade: string }[]
+}
+
+const StudentsList: React.FC = () => {
+  const [studentList, setStudentList] = useState<Student[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string>('')
+
+  const getData = async () => {
+    try {
+      const res = await fetch(`${API_URI}/students`)
+
+      if (!res.ok) throw new Error('Failed to fetch data')
+
+      const data = await res.json()
+
+      setStudentList(data.data.students)
+    } catch (error) {
+      setError((error as Error).message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <span className="animate-spin">
+          <Loader2 />
+        </span>
+      </div>
+    )
+  }
+
+  if (error)
+    return (
+      <p className="text-red-500 text-2xl min-h-screen flex justify-center items-center">
+        Error: {error}
+      </p>
+    )
+
+  return (
+    <div className="max-w-6xl mx-auto p-6">
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">Students Result</h1>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {studentList.map((student) => (
+          <StudentCard key={student.id} student={student} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default StudentsList

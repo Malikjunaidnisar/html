@@ -16,6 +16,7 @@ export const fetchStudents =createAsyncThunk('test',async()=>{
     return data.data.student
 })
 
+
 export const studentSlice = createSlice({
     name:'studentData',
     initialState,
